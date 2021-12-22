@@ -13,9 +13,9 @@ This Github repository offers the deep face recognition pipelines selected to be
 
 This Github repository is inspired by the source codes and face recognition and detection models available at [InsightFace](https://github.com/deepinsight/insightface) and [MagFace](https://github.com/IrvingMeng/MagFace) Github projects.
 
-- For face detection tasks, please refer to [Face Detection](https://github.com/IrvingMeng/MagFace).
-- For face recognition tasks, please refer to [Face Recognition](https://github.com/IrvingMeng/MagFace).
-- For face recognition datasets, please refer to [Datasets](https://github.com/IrvingMeng/MagFace).
+- For face detection tasks, please refer to [Face Detection](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Detection).
+- For face recognition tasks, please refer to [Face Recognition](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition).
+- For face recognition datasets, please refer to [Datasets](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Datasets).
 
 
 ## 2. Environment Requirements
