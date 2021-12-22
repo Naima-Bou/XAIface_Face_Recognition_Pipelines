@@ -2,7 +2,7 @@
 
  A set of face recognition datasets is introduced and classified according to their usage in the ArcFace Github project. 
  
- #### Notes:
+ ### Notes:
 - The pretrained ArcFace face recognition models provided in ... are trained only with the MS1MV2 dataset.
 - The terms of use are related to the original (not refined) datasets: 
 
