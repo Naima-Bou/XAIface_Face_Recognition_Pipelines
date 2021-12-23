@@ -2,12 +2,14 @@
 
 
 
-The Arcface face recognition models are trained with various ResNet architectures under the supervision of ArcFace loss.
+
 
 
 **Notes:**
- - `ACC` : Accuracy.
- - `_pfc` : using Partial FC, with sample-ratio=0.1.
+ 
+ - `ACC`: Accuracy.
+ - `_pfc`: using Partial FC, with sample-ratio=0.1.
+ - The Arcface face recognition models are trained with various ResNet architectures under the supervision of ArcFace loss.
  - The ACC values shown in the table are the experimental results provided in the [InsightFace](https://github.com/deepinsight/insightface/tree/master/model_zoo) Github project.
 
 ### 1. List of Pretrained ArcFace Models
