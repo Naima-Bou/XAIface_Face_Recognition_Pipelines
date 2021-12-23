@@ -4,7 +4,8 @@
 
 -  `AP`: Average Precision.
 -  The presented RetinaFace face detection models are trained and evaluated using the [WIDER FACE](http://shuoyang1213.me/WIDERFACE/WiderFace_Results.html) dataset.
--  Based on the detection rate of [EdgeBox](https://link.springer.com/chapter/10.1007/978-3-319-10602-1_26), three levels of datasets difficulty are defined by incrementally incorporating hard facial samples, which generates three WIDER FACE validation subsets, namely `Easy-set`, `Medium-set`, and `Hard-set`.
+-  According to the [arXiv technical report](https://arxiv.org/abs/1905.00641), three levels of datasets difficulty are defined using the detection rate of [EdgeBox](https://link.springer.com/chapter/10.1007/978-3-319-10602-1_26) by incrementally incorporating hard facial samples, which generates three WIDER FACE subsets, namely `Easy-set`, `Medium-set`, and `Hard-set`.
+
 -  The AP values shown in the table are the experimental results provided in the [InsightFace](https://github.com/deepinsight/insightface/tree/master/detection/retinaface) Github project.
 <div align="center">
   
