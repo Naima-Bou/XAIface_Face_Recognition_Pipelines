@@ -2,6 +2,9 @@
 
 <h1 align="center">  Arcface Implementation in Pytorch </h1>
 
+The ArcFace face recognition models and source codes are obtained from [InsightFace](https://github.com/deepinsight/insightface) Github projects.
+
+
 ## 1. Requirements
 
 - Install Pytorch (torch>=1.6.0).
