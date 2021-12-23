@@ -45,4 +45,4 @@ The following versions of the requirements are recommended by in InsightFace pro
 ## 3. Training and Evaluation 
 - For `RetinaFace` face detection models testing, please refer to [RetinaFace evaluation](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Detection/RetinaFace_Face_Detection/Face_Detection_Models). 
 - For `ArcFace` face recognition models training and testing, please refer to [ArcFace training & evaluation](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/ArcFace_Pytorch). 
-- For `MagFace` face recognition models training and testing, please refer to [MagFace training & evaluation](https://developer.nvidia.com/cuda-10.2-download-archive). 
+- For `MagFace` face recognition models training and testing, please refer to [MagFace training & evaluation](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/blob/main/Face_Recognition/MagFace_Face-Recognition/README.md). 
