@@ -42,7 +42,7 @@ The following versions of the requirements are recommended by in InsightFace pro
      `$ pip install -U insightface`
      
 
-## 3. Training and Inference 
+## 3. Training and Evaluation 
 - For `RetinaFace` face detection models testing, please refer to [??](https://developer.nvidia.com/cuda-10.2-download-archive). 
 - For `ArcFace` face recognition models training and testing, please refer to [??](https://developer.nvidia.com/cuda-10.2-download-archive). 
 - For `MagFace` face recognition models training and testing, please refer to [??](https://developer.nvidia.com/cuda-10.2-download-archive). 
