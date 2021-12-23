@@ -1,7 +1,7 @@
 <h1 align="center"> Face Recognition Datasets </h1>
 
 A selection of face recognition datasets is listed below.
-The datasets are group into training/valitadion/test following the organization considered in the InsightFace Github project.
+The datasets are grouped into training/validation/test following the organization considered in the InsightFace Github project.
  
  ### Notes:
 - The ArcFace face recognition models provided in <a href="https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/Face_Recognition_Models">ArcFace models</a> are trained only with the MS1MV2 dataset.
