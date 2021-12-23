@@ -8,7 +8,7 @@
 - Install `tensorboard`, `mxnet`, `easydict`, `onnx`, `sklearn`.
 
 - Download the dataset
-  from [Datasets](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipeline/tree/main/Datasets).
+  from [Datasets](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Datasets).
 
 ## 2. How to Train?
 
