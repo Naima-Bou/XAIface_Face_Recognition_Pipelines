@@ -1,6 +1,6 @@
 
 
-<h1 align="center"> Distributed Arcface Training in Pytorch </h1>
+<h1 align="center">  Arcface Implementation in Pytorch </h1>
 
 ## 1. Requirements
 
