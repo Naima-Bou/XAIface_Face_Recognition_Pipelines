@@ -12,10 +12,10 @@ entitled: [RetinaFace: Single-Shot Multi-Level Face Localisation in the Wild](ht
 
 ### Notes:
 
--  `AP` : Average Precision.
--  The presented RetinaFace face models are trained and evaluated using [WIDER FACE](http://shuoyang1213.me/WIDERFACE/WiderFace_Results.html) dataset.
--  Based on the detection rate of [EdgeBox](https://link.springer.com/chapter/10.1007/978-3-319-10602-1_26), three levels of difficulty are defined by incrementally incorporating hard facial samples, which generates three WIDER FACE test subsets, namely `Easy-set`, `Medium-set`, and `Hard-set`.
--  The AP results showed in the tables 
+-  `AP`: Average Precision.
+-  The presented RetinaFace face detection models are trained and evaluated using the [WIDER FACE](http://shuoyang1213.me/WIDERFACE/WiderFace_Results.html) dataset.
+-  Based on the detection rate of [EdgeBox](https://link.springer.com/chapter/10.1007/978-3-319-10602-1_26), three levels of datasets difficulty are defined by incrementally incorporating hard facial samples, which generates three WIDER FACE validation subsets, namely `Easy-set`, `Medium-set`, and `Hard-set`.
+-  The AP values shown in the table are the experimental results provided in the [InsightFace](https://github.com/deepinsight/insightface/tree/master/detection/retinaface) Github project.
 <div align="center">
   
 |                            |Model 1                                                               |Model 2        |
