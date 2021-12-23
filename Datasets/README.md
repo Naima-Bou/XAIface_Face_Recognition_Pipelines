@@ -1,16 +1,17 @@
 <h1 align="center"> Face Recognition Datasets </h1>
 
-A set of face recognition datasets is introduced and classified according to their usage stage for face recognition in the InsightFace Github project.
+A selection of face recognition datasets is listed below.
+The datasets are group into training/valitadion/test following the organization considered in the InsightFace Github project.
  
  ### Notes:
 - The ArcFace face recognition models provided in <a href="https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/Face_Recognition_Models">ArcFace models</a> are trained only with the MS1MV2 dataset.
-- The terms of use information are related to the original (not preprocessed) datasets: 
-
-    `Yes`: To download and use the dataset, you need to agree to terms and conditions.
-    
-     `No`: There exist no terms and conditions to agree to download and use the dataset.
      
 - The preprocessed datasets are obtained from the ArcFace Github project.
+
+- The "Terms of use" information refers to the original (not preprocessed) datasets: 
+
+    `Yes`: To download and use the dataset, a license agreement needs to be signed.
+    `No`: There is no need to sign a license agreement for using the dataset.
     
       
       
