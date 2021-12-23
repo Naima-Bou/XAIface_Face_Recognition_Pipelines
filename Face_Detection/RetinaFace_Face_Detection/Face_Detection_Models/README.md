@@ -31,7 +31,7 @@ entitled: [RetinaFace: Single-Shot Multi-Level Face Localisation in the Wild](ht
 
 ## 3. Testing
 
- - To test the pre-trained models, please check ``test.py``.
+ - To test the pretrained models, please check ``test.py``.
 
 
 
