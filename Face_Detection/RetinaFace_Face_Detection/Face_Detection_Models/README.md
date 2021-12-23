@@ -1,6 +1,4 @@
-
-
-## 2. RetinaFace Pretrained Models
+<h1 align="center"> RetinaFace Pretrained Models </h1>
 
 ### Notes:
 
