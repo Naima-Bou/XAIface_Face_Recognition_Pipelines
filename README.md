@@ -18,7 +18,7 @@ This Github repository includes source code, as well as face recognition and det
 - For face recognition datasets, please refer to [Datasets](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Datasets).
 
 
-## 2. Environment Requirements
+## 2. Project Requirements
 
 The requirements recommended by the InsightFace project include:
 
