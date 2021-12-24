@@ -1,1 +1,1 @@
- **ArcFace** and **MagFace** are two deep face recognition pipelines considered by the XAIface project.
+ **ArcFace** and **MagFace** are two deep face recognition pipelines adopted by the XAIface project.
