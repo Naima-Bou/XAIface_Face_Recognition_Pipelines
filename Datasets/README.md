@@ -10,8 +10,9 @@ The datasets are grouped into training/validation/test following the organizatio
 
 - The "Terms of use" information refers to the original (not preprocessed) datasets: 
 
-    `Yes`: To download and use the dataset, a license agreement needs to be signed.
-    `No`: There is no need to sign a license agreement for using the dataset.
+   `Yes`: To download and use the dataset, a license agreement needs to be signed.
+   
+   `No`: There is no need to sign a license agreement for using the dataset.
     
       
       
