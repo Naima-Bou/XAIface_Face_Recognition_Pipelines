@@ -43,7 +43,7 @@ The requirements recommended by the InsightFace project include:
      `$ pip install -U insightface`
      
 
-## 3. Training and Evaluation 
+## 3. Training and Testing
 
 - For `RetinaFace` face detection models testing, please refer to [RetinaFace evaluation](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Detection/RetinaFace_Face_Detection/Face_Detection_Models). 
 - For `ArcFace` face recognition models training and testing, please refer to [ArcFace training & evaluation](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/ArcFace_Pytorch). 
