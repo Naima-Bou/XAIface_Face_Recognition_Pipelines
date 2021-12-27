@@ -25,7 +25,7 @@ The datasets are grouped into training/validation/test following the organizatio
 |:------------------------|:-------:|:-----:|:-----------------------------------------------------------------------------------------------:|:-------------------------:|:--:|
 |<h4> CASIA-Webface  </h4>|10K      | 0.5M  |<a href="https://drive.google.com/file/d/1KxNCrXzln0lal3N4JiYl9cFOIhT78y1l/view">Google Drive</a>|Preprocessed               |Yes|
 |<h4> Vggface2       </h4>|9K       |3.31M  |<a href="https://drive.google.com/file/d/1dyVQ7X3d28eAcjV3s3o0MT-HyODp_v3R/view">Google Drive</a>|Preprocessed              |-|
-|<h4> MS1MV2         </h4>|85K      |5.8M   |<a href="https://drive.google.com/file/d/1SXS4-Am3bsKSK615qbYdbA_FMVh3sAvR/view">Google Drive</a>|Preprocessed              |-|
+|<h4> MS1MV2         </h4>|85K      |5.8M   |<a href="https://drive.google.com/file/d/1SXS4-Am3bsKSK615qbYdbA_FMVh3sAvR/view">Google Drive</a>|Preprocessed              |No|
 |<h4> MegaFace(train)</h4>|672K     |4.7M   |<a href="https://drive.google.com/file/d/1O4FxijSXoEIe6fLfOocqF4VFMh5B4d89/view">Google Drive</a>|Preprocessed                   |-|
 
 </div>
