@@ -40,6 +40,3 @@ python -m torch.distributed.launch --nproc_per_node=8 --nnodes=2 --node_rank=1 -
 ## 3. Pretrained Models
 
 - The pretrained models can be found in [ArcFace Face Recognition Models](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/Face_Recognition_Models).
-
-## 4. How to Test?
-...
