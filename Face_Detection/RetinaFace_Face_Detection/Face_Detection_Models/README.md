@@ -20,7 +20,7 @@
 </div>
 
 
-## 3. Testing
+### Testing
 
  - To test the pretrained models, please check ``test.py``.
 
