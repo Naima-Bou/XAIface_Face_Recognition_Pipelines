@@ -11,7 +11,7 @@
 ## 1. Introduction
 This is the Github repository for the deep face recognition pipelines adopted by the [XAIface](https://www.linkedin.com/in/chistera-xaiface-6a3478219/?originalSubdomain=fr) project. These face recognition pipelines include `RetinaFace`  for face detection, and `ArcFace`  and `MagFace` for face recognition.
 
-This Github repository includes source code, as well as face recognition and detection models, available from [InsightFace](https://github.com/deepinsight/insightface) and [MagFace](https://github.com/IrvingMeng/MagFace) Github projects.
+This Github repository includes source codes, as well as face recognition and detection models, available from [InsightFace](https://github.com/deepinsight/insightface) and [MagFace](https://github.com/IrvingMeng/MagFace) Github projects.
 
 - For face detection tasks, please refer to [Face Detection](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Detection).
 - For face recognition tasks, please refer to [Face Recognition](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition).
