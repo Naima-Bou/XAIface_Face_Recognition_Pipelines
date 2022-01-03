@@ -25,7 +25,7 @@
 |**Link to the pretrained model** |[Google Drive](https://drive.google.com/drive/folders/1v6fP2ZQIUp2LS7mnyudwLqgnnqvLrOk3?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1kvOe0NhtF7qdTqDJ9wj8-wlROr_1TwiC/view?usp=sharing)                                              |[Google Drive](https://drive.google.com/file/d/1DwI59NIzlJb58gWFP038fKDWzzO6uu6V/view?usp=sharing)                                              |[Google Drive](https://drive.google.com/file/d/1hcoHaq-7YppPxICTjRO-1vPscKoXs06m/view?usp=sharing)                                                                            |
 </div>
 
- ### 2. ArcFace Pretrained Models evaluation on Various Datasets     
+ ### 2. ArcFace Pretrained Models Evaluation on Various Datasets     
   
 <div align="center">
   
