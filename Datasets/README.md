@@ -21,11 +21,11 @@ The datasets are grouped into training/validation/test following the organizatio
 
 <div align="center">
     
-|Training datasets        |#Subjects|#Images| Dataset link                                                                                    |Original / preprocessed dataset |Terms of use|
-|:------------------------|:-------:|:-----:|:-----------------------------------------------------------------------------------------------:|:-------------------------:|:--:|
-|<h4> CASIA-Webface  </h4>|10K      | 0.5M  |<a href="https://drive.google.com/file/d/1KxNCrXzln0lal3N4JiYl9cFOIhT78y1l/view">Google Drive</a>|Preprocessed               |Yes|
-|<h4> Vggface2       </h4>|9K       |3.31M  |<a href="https://drive.google.com/file/d/1dyVQ7X3d28eAcjV3s3o0MT-HyODp_v3R/view">Google Drive</a>|Preprocessed              |-|
-|<h4> MS1MV2         </h4>|85K      |5.8M   |<a href="https://drive.google.com/file/d/1SXS4-Am3bsKSK615qbYdbA_FMVh3sAvR/view">Google Drive</a>|Preprocessed              |No|
+|Training datasets        |#Subjects|#Images| Original / preprocessed dataset |Dataset link |Terms of use for original dataset|                                                                       
+|:------------------------|:-------:|:-----:|:-------------------------:|:-----------------------------------------------------------------------------------------------:|:--:|
+|<h4> CASIA-Webface  </h4>|10K      | 0.5M  |Preprocessed               |<a href="https://drive.google.com/file/d/1KxNCrXzln0lal3N4JiYl9cFOIhT78y1l/view">Google Drive</a>|<a href="http://www.cbsr.ia.ac.cn/english/casia-webFace/casia-webfAce_AgreEmeNtS.pdf">Yes</a>|
+|<h4> Vggface2       </h4>|9K       |3.31M  |Preprocessed              |<a href="https://drive.google.com/file/d/1dyVQ7X3d28eAcjV3s3o0MT-HyODp_v3R/view">Google Drive</a>|Not currently available|
+|<h4> MS1MV2         </h4>|85K      |5.8M   |Preprocessed              |<a href="https://drive.google.com/file/d/1SXS4-Am3bsKSK615qbYdbA_FMVh3sAvR/view">Google Drive</a>|No|
 
 </div>
       
@@ -33,12 +33,12 @@ The datasets are grouped into training/validation/test following the organizatio
 
 <div align="center">
     
-|Validation datasets |#Subjects|#Images|Dataset link                                                                 |Original / preprocessed dataset|Terms of use|
-|:-------------------|:-------:|:-----:|:---------------------------------------------------------------------------:|:------------------------:|:----------:|
-|<h4> AgeDB-30 </h4> |570      |12,240 |<a href="https://ibug.doc.ic.ac.uk/resources/agedb/">Official Page</a>       |Original                  |Yes         |
-|<h4> LFW      </h4> |5749     |13233  |<a href="http://vis-www.cs.umass.edu/lfw/">Official Page</a>                 |Original                  |No          |
-|<h4> CALFW    </h4> |5749     |13233  |<a href="http://whdeng.cn/CALFW/index.html?reload=true">Official Page</a>    |Original                  |No          |
-|<h4> CPLFW    </h4> |5749     |13233  |<a href="http://www.whdeng.cn/cplfw/index.html?reload=true">Official Page</a>|Original                  |No          |
+|Validation datasets |#Subjects|#Images|Original / preprocessed dataset|Dataset link                                                                 |Terms of use for original dataset|
+|:-------------------|:-------:|:-----:|:------------------------:|:---------------------------------------------------------------------------:|:----------:|
+|<h4> AgeDB-30 </h4> |570      |12,240 |Original                  |<a href="https://ibug.doc.ic.ac.uk/resources/agedb/">Official Page</a>       |<a href="https://ibug.doc.ic.ac.uk/resources/agedb/">Yes</a>         |
+|<h4> LFW      </h4> |5749     |13233  |Original                  |<a href="http://vis-www.cs.umass.edu/lfw/">Official Page</a>                 |No          |
+|<h4> CALFW    </h4> |5749     |13233  |Original                  |<a href="http://whdeng.cn/CALFW/index.html?reload=true">Official Page</a>    |No          |
+|<h4> CPLFW    </h4> |5749     |13233  |Original                  |<a href="http://www.whdeng.cn/cplfw/index.html?reload=true">Official Page</a>|No          |
 
 </div>
 
@@ -46,10 +46,10 @@ The datasets are grouped into training/validation/test following the organizatio
 
 <div align="center">
     
-|Test datasets                |#Subjects|#Images| Dataset link                                                                         |Original / preprocessed dataset|Terms of use|
-|:----------------------------|:-------:|:-----:|:-----------------------------------------------------------------------------------------------:|:-------------:|:------:|
-|<h4> IJB (IJB-B, IJB-C)</h4> | -       |  -    |<a href="https://drive.google.com/file/d/1aC4zf2Bn0xCVH_ZtEuQipR2JvRb1bf8o/view">Google Drive</a>|Preprocessed   |Yes     |
-|<h4> TrillionPairs     </h4> |5,749    |1.58M  |<a href="http://trillionpairs.deepglint.com/overview">Official Page</a>                          |Original       |No      |
+|Test datasets                |#Subjects|#Images|Original / preprocessed dataset| Dataset link                                                                |Terms of use for original dataset|
+|:----------------------------|:-------:|:-----:|:-------------:|:-----------------------------------------------------------------------------------------------:|:------:|
+|<h4> IJB (IJB-B, IJB-C)</h4> | -       |  -    |Preprocessed   |<a href="https://drive.google.com/file/d/1aC4zf2Bn0xCVH_ZtEuQipR2JvRb1bf8o/view">Google Drive</a>|<a href="https://nigos.nist.gov/datasets/ijbc/request">Yes</a>      |
+|<h4> TrillionPairs     </h4> |5,749    |1.58M  |Original       |<a href="http://trillionpairs.deepglint.com/overview">Official Page</a>                          |No      |
 
 
 
