@@ -26,6 +26,9 @@ The datasets are grouped into training/validation/test following the organizatio
 |<h4> CASIA-Webface  </h4>|10K      | 0.5M  |Preprocessed               |<a href="https://drive.google.com/file/d/1KxNCrXzln0lal3N4JiYl9cFOIhT78y1l/view">Google Drive</a>|<a href="http://www.cbsr.ia.ac.cn/english/casia-webFace/casia-webfAce_AgreEmeNtS.pdf">Yes</a>|
 |<h4> Vggface2       </h4>|9K       |3.31M  |Preprocessed              |<a href="https://drive.google.com/file/d/1dyVQ7X3d28eAcjV3s3o0MT-HyODp_v3R/view">Google Drive</a>|Not currently available|
 |<h4> MS1MV2         </h4>|85K      |5.8M   |Preprocessed              |<a href="https://drive.google.com/file/d/1SXS4-Am3bsKSK615qbYdbA_FMVh3sAvR/view">Google Drive</a>|No|
+|<h4> DiveFace         </h4>|24k    |150k   |-              |<a href="https://github.com/BiDAlab/DiveFace">GitHub</a>|<a href="https://github.com/BiDAlab/DiveFace">Yes</a>|
+|<h4> FairFace         </h4>|-    |108K    |Preprocessed (with <a href="http://dlib.net/python/index.html#dlib.get_face_chip">get_face_chip()</a>) |<a href="https://github.com/joojs/fairface">GitHub</a>|No|
+|<h4> FairFaceRec (superset of IJB-C) </h4>|6139 |152917k|Original |<a href="https://chalearnlap.cvc.uab.es/dataset/36/description/">Official Page</a>|<a href="https://competitions.codalab.org/competitions/24184#learn_the_details-terms_and_conditions">Yes</a>|
 
 </div>
       
