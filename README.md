@@ -27,9 +27,9 @@ The requirements recommended by the InsightFace project include:
      `$ sudo apt-get update` \
      `$ sudo apt-get install python3.x`
      
-- Cuda 10.2 
+- Cuda Toolkit
 
-     For cuda 10.2 instalation, please refer to [CUDA Toolkit 10.2 Download](https://developer.nvidia.com/cuda-10.2-download-archive).
+     For cuda Toolkit instalation, please refer to [CUDA Toolkit Download](https://developer.nvidia.com/cuda-toolkit-archive).
   
 - PyTorch >= 1.6
 
