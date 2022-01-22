@@ -32,8 +32,9 @@ The requirements recommended by the InsightFace project include:
      For cuda Toolkit instalation, please refer to [CUDA Toolkit Download](https://developer.nvidia.com/cuda-toolkit-archive).
   
 - PyTorch >= 1.6
-
-     `$ pip install torch==1.6 torchvision torchaudio`
+   
+     For PyTorch installation, please refer to [PyTorch Installation](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/blob/main/Face_Recognition/ArcFace_Face_Recognition/ArcFace_Pytorch/docs/Pytorch_Install.md).
+     
 
 - Onnxruntime-gpu 1.6 
  
