@@ -49,8 +49,8 @@ Test example of the ArcFace pretrained model with ResNet50 backbone on the IJB-C
 ` CUDA_VISIBLE_DEVICES=0 python eval_ijbc.py \
 --model-prefix backbone_resnet50.pth \
 --image-path IJB_release/IJBC \
---result-dir MS1MV2_ResNet100_ArcFace \
+--result-dir MS1MV2_ResNet50_ArcFace \
 --batch-size 128 \
---job MS1MV2_ResNet100_ArcFace \
+--job MS1MV2_ResNet50_ArcFace \
 --target IJBC \
 --network iresnet50`
