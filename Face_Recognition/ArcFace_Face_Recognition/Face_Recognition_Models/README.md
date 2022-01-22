@@ -22,7 +22,7 @@
 |**Training dataset**        |MS1MV2                                                                                              |MS1MV2  |MS1MV2   |MS1MV2_pfc|
 |**Loss function**           |ArcFace                                                                                             |ArcFace |ArcFace  |ArcFace   |
 |**Machine learning library**|MXNet                                                                                               |PyTorch |PyTorch  |PyTorch   |
-|**Link to the pretrained model** |[Google Drive](https://drive.google.com/drive/folders/1v6fP2ZQIUp2LS7mnyudwLqgnnqvLrOk3?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1kvOe0NhtF7qdTqDJ9wj8-wlROr_1TwiC/view?usp=sharing)                                              |[Google Drive](https://drive.google.com/file/d/1DwI59NIzlJb58gWFP038fKDWzzO6uu6V/view?usp=sharing)                                              |[Google Drive](https://drive.google.com/file/d/1hcoHaq-7YppPxICTjRO-1vPscKoXs06m/view?usp=sharing)                                                                            |
+|**Link to the pretrained model** |[Google Drive](https://drive.google.com/drive/folders/1v6fP2ZQIUp2LS7mnyudwLqgnnqvLrOk3?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1tzv-_XFOWJbrKEkWx0YVW9fGNlxIP32h/view?usp=sharing)                                              |[Google Drive](https://drive.google.com/file/d/1DSpbwx73eKJGYWsk2kMy5gLiG9HGGhnu/view?usp=sharing)                                              |[Google Drive](https://drive.google.com/file/d/1hcoHaq-7YppPxICTjRO-1vPscKoXs06m/view?usp=sharing)                                                                            |
 </div>
 
  ### 2. ArcFace Pretrained Models Evaluation on Various Datasets     
