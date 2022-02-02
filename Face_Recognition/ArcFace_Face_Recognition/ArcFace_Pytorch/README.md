@@ -42,7 +42,7 @@ python -m torch.distributed.launch --nproc_per_node=8 --nnodes=2 --node_rank=1 -
 - The pretrained models can be found in [ArcFace Face Recognition Models](https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/Face_Recognition_Models).
 
 
-## 2. How to Test?
+## 4. How to Test?
 
 Test example of the ArcFace pretrained model with ResNet50 backbone on the IJB-C dataset (Note: Additional requirements are `pandas`, `menpo` and `prettytable`.)
 
