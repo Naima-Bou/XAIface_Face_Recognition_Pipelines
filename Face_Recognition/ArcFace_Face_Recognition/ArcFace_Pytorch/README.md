@@ -48,6 +48,8 @@ Test example of the ArcFace pretrained model with ResNet50 backbone on the IJB-C
 
 - Additional requirements are `pandas`, `menpo` and `prettytable`.
 
+- Additional requirements are `pandas`, `menpo` and `prettytable`.
+
 ` CUDA_VISIBLE_DEVICES=0 python eval_ijbc.py \
 --model-prefix backbone_resnet50.pth \
 --image-path IJB_release/IJBC \
