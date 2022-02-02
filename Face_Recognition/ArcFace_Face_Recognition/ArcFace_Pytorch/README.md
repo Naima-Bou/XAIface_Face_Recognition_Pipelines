@@ -44,17 +44,6 @@ python -m torch.distributed.launch --nproc_per_node=8 --nnodes=2 --node_rank=1 -
 
 ## 2. How to Test?
 
-Test example of the ArcFace pretrained model with ResNet50 backbone on the IJB-C dataset:
+Test example of the ArcFace pretrained model with ResNet50 backbone on the IJB-C dataset (Note: Additional requirements are `pandas`, `menpo` and `prettytable`.)
 
-- Additional requirements are `pandas`, `menpo` and `prettytable`.
-
-- Additional requirements are `pandas`, `menpo` and `prettytable`.
-
-` CUDA_VISIBLE_DEVICES=0 python eval_ijbc.py \
---model-prefix backbone_resnet50.pth \
---image-path IJB_release/IJBC \
---result-dir MS1MV2_ResNet50_ArcFace \
---batch-size 128 \
---job MS1MV2_ResNet50_ArcFace \
---target IJBC \
---network r50`
+` CUDA_VISIBLE_DEVICES=0 python eval_ijbc.py --model-prefix backbone_resnet50.pth --image-path IJB_release/IJBC --result-dir MS1MV2_ResNet50_ArcFace --batch-size 128 --job MS1MV2_ResNet50_ArcFace --target IJBC --network r50`
