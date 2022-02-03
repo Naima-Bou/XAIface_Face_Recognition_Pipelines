@@ -46,13 +46,17 @@ python -m torch.distributed.launch --nproc_per_node=8 --nnodes=2 --node_rank=1 -
 
 Test example of the ArcFace pretrained model with ResNet50 backbone on the IJB-C dataset (Note: Additional requirements are `pandas`, `menpo` and `prettytable`.)
 
-``` CUDA_VISIBLE_DEVICES=0 python eval_ijbc.py --model-prefix backbone_resnet50.pth --image-path IJB_release/IJBC --result-dir MS1MV2_ResNet50_ArcFace --batch-size 128 --job MS1MV2_ResNet50_ArcFace --target IJBC --network r50```
+<h5> - Node 1: </h5> 
 
-Expected result (provided by JRS, 03.02.2022) 
+```shell
+CUDA_VISIBLE_DEVICES=0 python eval_ijbc.py --model-prefix backbone_resnet50.pth --image-path IJB_release/IJBC --result-dir MS1MV2_ResNet50_ArcFace --batch-size 128 --job MS1MV2_ResNet50_ArcFace --target IJBC --network r50
+```
 
-|  Methods  | 1e-06 | 1e-05 | 0.0001 | 0.001 |  0.01 |  0.1  |
-| :---      | :----:| :----:| :----: | :----:| :----:| :----:|
-| ijbc-IJBC | 90.03 | 94.79 | 96.46  | 97.62 | 98.55 | 99.14 |
+Expected result for **ijbc-IJBC** (provided by JRS, 03.02.2022) 
 
-![ArcFace result obtained by JRS](20220203_ijbc.ArcFace.JRS.png)
+|  FPR [1]    | 1e-06 | 1e-05 | 0.0001 | 0.001 |  0.01 |  0.1  |
+| :---        | :----:| :----:| :----: | :----:| :----:| :----:|
+| **TPR [%]** | 90.03 | 94.79 | 96.46  | 97.62 | 98.55 | 99.14 |
+
+![ArcFace result obtained by JRS](20220203_ijbc.ArcFace.JRS.png){:height="450px" width="450px"}
 
