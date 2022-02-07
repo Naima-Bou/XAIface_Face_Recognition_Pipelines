@@ -8,9 +8,10 @@
 
 -  The AP values shown in the table are the experimental results provided in the [InsightFace](https://github.com/deepinsight/insightface/tree/master/detection/retinaface) Github project.
 <div align="center">
-  
-|                            |Model 1                                                               |Model 2        |
-|:---------------------------|:--------------------------------------------------------------------:|:-------------:|
+
+
+|                           |Model 1                                                               |Model 2        |
+| :--------------------------- |:--------------------------------------------------------------------:|:-------------:|
 |**Backbone**                |ResNet50                                                              | MobileNet-0.25|
 |**Loss function**           |RetinaFace                                                            |RetinaFace     | 
 |**Easy-set** (AP)          |96.5%                                                                 |-              |
@@ -23,6 +24,11 @@
 ### Testing
 
  - To test the pretrained models, please check ``test.py``.
+ 
+#### Notes on running RetinaFace on Windows (JRS)
+ - the special makefile (Makefile.bat) has to be called in order to compile binary implementations of several code-parts
+ - the ResNet50-model (names as "R50-symbol.json" and "R50-0000.params") has to be copied to the ./model directory
+ - an input-image namend "t1.jpg" has to be copied to the entire directory
 
 
 

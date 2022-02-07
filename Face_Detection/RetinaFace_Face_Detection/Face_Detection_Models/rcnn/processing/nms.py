@@ -1,5 +1,9 @@
 import numpy as np
-from ..cython.cpu_nms import cpu_nms
+import sys
+if sys.platform == 'win32':
+    from ..cython.cpu_nms_win32 import cpu_nms
+else:
+    from ..cython.cpu_nms import cpu_nms
 try:
     from ..cython.gpu_nms import gpu_nms
 except ImportError:
