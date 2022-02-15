@@ -309,175 +309,179 @@ def read_score(path):
     return img_feats
 
 
-# # Step1: Load Meta Data
+# %% main entry point /test-script
+"""
+This is the main function entry point for direct execution of the script (e.g. for development).
+The code is called only, if the entire script is executed from python directly.
+"""
+if __name__ == '__main__':
 
-# In[ ]:
 
-assert target == 'IJBC' or target == 'IJBB'
+    assert target == 'IJBC' or target == 'IJBB'
 
-# =============================================================
-# load image and template relationships for template feature embedding
-# tid --> template id,  mid --> media id
-# format:
-#           image_name tid mid
-# =============================================================
-start = timeit.default_timer()
-templates, medias = read_template_media_list(
-    os.path.join('%s/meta' % image_path,
-                 '%s_face_tid_mid.txt' % target.lower()))
-stop = timeit.default_timer()
-print('Time: %.2f s. ' % (stop - start))
+    # =============================================================
+    # load image and template relationships for template feature embedding
+    # tid --> template id,  mid --> media id
+    # format:
+    #           image_name tid mid
+    # =============================================================
+    start = timeit.default_timer()
+    templates, medias = read_template_media_list(
+        os.path.join('%s/meta' % image_path,
+                     '%s_face_tid_mid.txt' % target.lower()))
+    stop = timeit.default_timer()
+    print('Time: %.2f s. ' % (stop - start))
 
-# In[ ]:
+    # In[ ]:
 
-# =============================================================
-# load template pairs for template-to-template verification
-# tid : template id,  label : 1/0
-# format:
-#           tid_1 tid_2 label
-# =============================================================
-start = timeit.default_timer()
-p1, p2, label = read_template_pair_list(
-    os.path.join('%s/meta' % image_path,
-                 '%s_template_pair_label.txt' % target.lower()))
-stop = timeit.default_timer()
-print('Time: %.2f s. ' % (stop - start))
+    # =============================================================
+    # load template pairs for template-to-template verification
+    # tid : template id,  label : 1/0
+    # format:
+    #           tid_1 tid_2 label
+    # =============================================================
+    start = timeit.default_timer()
+    p1, p2, label = read_template_pair_list(
+        os.path.join('%s/meta' % image_path,
+                     '%s_template_pair_label.txt' % target.lower()))
+    stop = timeit.default_timer()
+    print('Time: %.2f s. ' % (stop - start))
 
-# # Step 2: Get Image Features
+    # # Step 2: Get Image Features
 
-# In[ ]:
+    # In[ ]:
 
-# =============================================================
-# load image features
-# format:
-#           img_feats: [image_num x feats_dim] (227630, 512)
-# =============================================================
-start = timeit.default_timer()
-img_path = '%s/loose_crop' % image_path
-img_list_path = '%s/meta/%s_name_5pts_score.txt' % (image_path, target.lower())
-img_list = open(img_list_path)
-files = img_list.readlines()
-# files_list = divideIntoNstrand(files, rank_size)
-files_list = files
+    # =============================================================
+    # load image features
+    # format:
+    #           img_feats: [image_num x feats_dim] (227630, 512)
+    # =============================================================
+    start = timeit.default_timer()
+    img_path = '%s/loose_crop' % image_path
+    img_list_path = '%s/meta/%s_name_5pts_score.txt' % (image_path, target.lower())
+    img_list = open(img_list_path)
+    files = img_list.readlines()
+    # files_list = divideIntoNstrand(files, rank_size)
+    files_list = files
 
-# img_feats
-# for i in range(rank_size):
-img_feats, faceness_scores = get_image_feature(img_path, files_list,
-                                               model_path, 0, gpu_id)
-stop = timeit.default_timer()
-print('Time: %.2f s. ' % (stop - start))
-print('Feature Shape: ({} , {}) .'.format(img_feats.shape[0],
-                                          img_feats.shape[1]))
+    # img_feats
+    # for i in range(rank_size):
+    img_feats, faceness_scores = get_image_feature(img_path, files_list,
+                                                   model_path, 0, gpu_id)
+    stop = timeit.default_timer()
+    print('Time: %.2f s. ' % (stop - start))
+    print('Feature Shape: ({} , {}) .'.format(img_feats.shape[0],
+                                              img_feats.shape[1]))
 
-# # Step3: Get Template Features
+    # # Step3: Get Template Features
 
-# In[ ]:
+    # In[ ]:
 
-# =============================================================
-# compute template features from image features.
-# =============================================================
-start = timeit.default_timer()
-# ==========================================================
-# Norm feature before aggregation into template feature?
-# Feature norm from embedding network and faceness score are able to decrease weights for noise samples (not face).
-# ==========================================================
-# 1. FaceScore （Feature Norm）
-# 2. FaceScore （Detector）
+    # =============================================================
+    # compute template features from image features.
+    # =============================================================
+    start = timeit.default_timer()
+    # ==========================================================
+    # Norm feature before aggregation into template feature?
+    # Feature norm from embedding network and faceness score are able to decrease weights for noise samples (not face).
+    # ==========================================================
+    # 1. FaceScore （Feature Norm）
+    # 2. FaceScore （Detector）
 
-if use_flip_test:
-    # concat --- F1
-    # img_input_feats = img_feats
-    # add --- F2
-    img_input_feats = img_feats[:, 0:img_feats.shape[1] //
-                                     2] + img_feats[:, img_feats.shape[1] // 2:]
-else:
-    img_input_feats = img_feats[:, 0:img_feats.shape[1] // 2]
+    if use_flip_test:
+        # concat --- F1
+        # img_input_feats = img_feats
+        # add --- F2
+        img_input_feats = img_feats[:, 0:img_feats.shape[1] //
+                                         2] + img_feats[:, img_feats.shape[1] // 2:]
+    else:
+        img_input_feats = img_feats[:, 0:img_feats.shape[1] // 2]
 
-if use_norm_score:
-    img_input_feats = img_input_feats
-else:
-    # normalise features to remove norm information
-    img_input_feats = img_input_feats / np.sqrt(
-        np.sum(img_input_feats ** 2, -1, keepdims=True))
+    if use_norm_score:
+        img_input_feats = img_input_feats
+    else:
+        # normalise features to remove norm information
+        img_input_feats = img_input_feats / np.sqrt(
+            np.sum(img_input_feats ** 2, -1, keepdims=True))
 
-if use_detector_score:
-    print(img_input_feats.shape, faceness_scores.shape)
-    img_input_feats = img_input_feats * faceness_scores[:, np.newaxis]
-else:
-    img_input_feats = img_input_feats
+    if use_detector_score:
+        print(img_input_feats.shape, faceness_scores.shape)
+        img_input_feats = img_input_feats * faceness_scores[:, np.newaxis]
+    else:
+        img_input_feats = img_input_feats
 
-template_norm_feats, unique_templates = image2template_feature(
-    img_input_feats, templates, medias)
-stop = timeit.default_timer()
-print('Time: %.2f s. ' % (stop - start))
+    template_norm_feats, unique_templates = image2template_feature(
+        img_input_feats, templates, medias)
+    stop = timeit.default_timer()
+    print('Time: %.2f s. ' % (stop - start))
 
-# # Step 4: Get Template Similarity Scores
+    # # Step 4: Get Template Similarity Scores
 
-# In[ ]:
+    # In[ ]:
 
-# =============================================================
-# compute verification scores between template pairs.
-# =============================================================
-start = timeit.default_timer()
-score = verification(template_norm_feats, unique_templates, p1, p2)
-stop = timeit.default_timer()
-print('Time: %.2f s. ' % (stop - start))
+    # =============================================================
+    # compute verification scores between template pairs.
+    # =============================================================
+    start = timeit.default_timer()
+    score = verification(template_norm_feats, unique_templates, p1, p2)
+    stop = timeit.default_timer()
+    print('Time: %.2f s. ' % (stop - start))
 
-# In[ ]:
-save_path = os.path.join(result_dir, args.job)
-# save_path = result_dir + '/%s_result' % target
+    # In[ ]:
+    save_path = os.path.join(result_dir, args.job)
+    # save_path = result_dir + '/%s_result' % target
 
-if not os.path.exists(save_path):
-    os.makedirs(save_path)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
 
-score_save_file = os.path.join(save_path, "%s.npy" % target.lower())
-np.save(score_save_file, score)
+    score_save_file = os.path.join(save_path, "%s.npy" % target.lower())
+    np.save(score_save_file, score)
 
-# # Step 5: Get ROC Curves and TPR@FPR Table
+    # # Step 5: Get ROC Curves and TPR@FPR Table
 
-# In[ ]:
+    # In[ ]:
 
-files = [score_save_file]
-methods = []
-scores = []
-for file in files:
-    methods.append(Path(file).stem)
-    scores.append(np.load(file))
+    files = [score_save_file]
+    methods = []
+    scores = []
+    for file in files:
+        methods.append(Path(file).stem)
+        scores.append(np.load(file))
 
-methods = np.array(methods)
-scores = dict(zip(methods, scores))
-colours = dict(
-    zip(methods, sample_colours_from_colourmap(methods.shape[0], 'Set2')))
-x_labels = [10 ** -6, 10 ** -5, 10 ** -4, 10 ** -3, 10 ** -2, 10 ** -1]
-tpr_fpr_table = PrettyTable(['Methods'] + [str(x) for x in x_labels])
-fig = plt.figure()
-for method in methods:
-    fpr, tpr, _ = roc_curve(label, scores[method])
-    roc_auc = auc(fpr, tpr)
-    fpr = np.flipud(fpr)
-    tpr = np.flipud(tpr)  # select largest tpr at same fpr
-    plt.plot(fpr,
-             tpr,
-             color=colours[method],
-             lw=1,
-             label=('[%s (AUC = %0.4f %%)]' %
-                    (method.split('-')[-1], roc_auc * 100)))
-    tpr_fpr_row = []
-    tpr_fpr_row.append("%s-%s" % (method, target))
-    for fpr_iter in np.arange(len(x_labels)):
-        _, min_index = min(
-            list(zip(abs(fpr - x_labels[fpr_iter]), range(len(fpr)))))
-        tpr_fpr_row.append('%.2f' % (tpr[min_index] * 100))
-    tpr_fpr_table.add_row(tpr_fpr_row)
-plt.xlim([10 ** -6, 0.1])
-plt.ylim([0.3, 1.0])
-plt.grid(linestyle='--', linewidth=1)
-plt.xticks(x_labels)
-plt.yticks(np.linspace(0.3, 1.0, 8, endpoint=True))
-plt.xscale('log')
-plt.xlabel('False Positive Rate')
-plt.ylabel('True Positive Rate')
-plt.title('ROC on IJB')
-plt.legend(loc="lower right")
-fig.savefig(os.path.join(save_path, '%s.pdf' % target.lower()))
-print(tpr_fpr_table)
+    methods = np.array(methods)
+    scores = dict(zip(methods, scores))
+    colours = dict(
+        zip(methods, sample_colours_from_colourmap(methods.shape[0], 'Set2')))
+    x_labels = [10 ** -6, 10 ** -5, 10 ** -4, 10 ** -3, 10 ** -2, 10 ** -1]
+    tpr_fpr_table = PrettyTable(['Methods'] + [str(x) for x in x_labels])
+    fig = plt.figure()
+    for method in methods:
+        fpr, tpr, _ = roc_curve(label, scores[method])
+        roc_auc = auc(fpr, tpr)
+        fpr = np.flipud(fpr)
+        tpr = np.flipud(tpr)  # select largest tpr at same fpr
+        plt.plot(fpr,
+                 tpr,
+                 color=colours[method],
+                 lw=1,
+                 label=('[%s (AUC = %0.4f %%)]' %
+                        (method.split('-')[-1], roc_auc * 100)))
+        tpr_fpr_row = []
+        tpr_fpr_row.append("%s-%s" % (method, target))
+        for fpr_iter in np.arange(len(x_labels)):
+            _, min_index = min(
+                list(zip(abs(fpr - x_labels[fpr_iter]), range(len(fpr)))))
+            tpr_fpr_row.append('%.2f' % (tpr[min_index] * 100))
+        tpr_fpr_table.add_row(tpr_fpr_row)
+    plt.xlim([10 ** -6, 0.1])
+    plt.ylim([0.3, 1.0])
+    plt.grid(linestyle='--', linewidth=1)
+    plt.xticks(x_labels)
+    plt.yticks(np.linspace(0.3, 1.0, 8, endpoint=True))
+    plt.xscale('log')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('ROC on IJB')
+    plt.legend(loc="lower right")
+    fig.savefig(os.path.join(save_path, '%s.pdf' % target.lower()))
+    print(tpr_fpr_table)
