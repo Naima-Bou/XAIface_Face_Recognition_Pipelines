@@ -25,38 +25,20 @@ from pathlib import Path
 import sys
 import warnings
 
-sys.path.insert(0, "../")
-warnings.filterwarnings("ignore")
-
-parser = argparse.ArgumentParser(description='do ijb test')
-# general
-parser.add_argument('--model-prefix', default='', help='path to load model.')
-parser.add_argument('--image-path', default='', type=str, help='')
-parser.add_argument('--result-dir', default='.', type=str, help='')
-parser.add_argument('--batch-size', default=128, type=int, help='')
-parser.add_argument('--network', default='iresnet50', type=str, help='')
-parser.add_argument('--job', default='insightface', type=str, help='job name')
-parser.add_argument('--target', default='IJBC', type=str, help='target, set to IJBC or IJBB')
-args = parser.parse_args()
-
-target = args.target
-model_path = args.model_prefix
-image_path = args.image_path
-result_dir = args.result_dir
-gpu_id = None
-use_norm_score = True  # if Ture, TestMode(N1)
-use_detector_score = True  # if Ture, TestMode(D1)
-use_flip_test = True  # if Ture, TestMode(F1)
-job = args.job
-batch_size = args.batch_size
+globalArgs = []  # definition of a global argument container if functionality is used from another module from outside
 
 
 class Embedding(object):
     def __init__(self, prefix, data_shape, batch_size=1):
+        if not 'args' in globals():
+            global globalArgs
+            args_ = globalArgs
+        else:
+            args_ = args
         image_size = (112, 112)
         self.image_size = image_size
         weight = torch.load(prefix)
-        resnet = get_model(args.network, dropout=0, fp16=False).cuda()
+        resnet = get_model(args_.network, dropout=0, fp16=False).cuda()
         resnet.load_state_dict(weight)
         model = torch.nn.DataParallel(resnet)
         self.model = model
@@ -152,7 +134,12 @@ def read_image_feature(path):
 
 
 def get_image_feature(img_path, files_list, model_path, epoch, gpu_id):
-    batch_size = args.batch_size
+    if not 'args' in globals():
+        global globalArgs
+        args_ = globalArgs
+    else:
+        args_ = args
+    batch_size = args_.batch_size
     data_shape = (3, 112, 112)
 
     files = files_list
@@ -318,6 +305,30 @@ The code is called only, if the entire script is executed from python directly.
 """
 if __name__ == '__main__':
 
+    sys.path.insert(0, "../")
+    warnings.filterwarnings("ignore")
+
+    parser = argparse.ArgumentParser(description='do ijb test')
+    # general
+    parser.add_argument('--model-prefix', default='', help='path to load model.')
+    parser.add_argument('--image-path', default='', type=str, help='')
+    parser.add_argument('--result-dir', default='.', type=str, help='')
+    parser.add_argument('--batch-size', default=128, type=int, help='')
+    parser.add_argument('--network', default='iresnet50', type=str, help='')
+    parser.add_argument('--job', default='insightface', type=str, help='job name')
+    parser.add_argument('--target', default='IJBC', type=str, help='target, set to IJBC or IJBB')
+    args = parser.parse_args()
+
+    target = args.target
+    model_path = args.model_prefix
+    image_path = args.image_path
+    result_dir = args.result_dir
+    gpu_id = None
+    use_norm_score = True  # if Ture, TestMode(N1)
+    use_detector_score = True  # if Ture, TestMode(D1)
+    use_flip_test = True  # if Ture, TestMode(F1)
+    job = args.job
+    batch_size = args.batch_size
 
     assert target == 'IJBC' or target == 'IJBB'
 
