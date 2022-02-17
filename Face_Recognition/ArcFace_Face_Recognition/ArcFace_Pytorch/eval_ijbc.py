@@ -6,7 +6,7 @@ import pickle
 import matplotlib
 import pandas as pd
 
-matplotlib.use('Agg')
+# matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import timeit
 import sklearn
@@ -176,7 +176,8 @@ def get_image_feature(img_path, files_list, model_path, epoch, gpu_id):
         batch_data[2 * (img_index - batch * batch_size)][:] = input_blob[0]
         batch_data[2 * (img_index - batch * batch_size) + 1][:] = input_blob[1]
         if (img_index + 1) % batch_size == 0:
-            print('batch', batch)
+            print('batch %d (%d od %d images (%.2f%%) processed)' %
+                  (batch, img_index, len(files), 100*img_index/len(files)))
             img_feats[batch * batch_size:batch * batch_size +
                                          batch_size][:] = embedding.forward_db(batch_data)
             batch += 1
@@ -195,7 +196,8 @@ def get_image_feature(img_path, files_list, model_path, epoch, gpu_id):
         batch_data[2 * img_index][:] = input_blob[0]
         batch_data[2 * img_index + 1][:] = input_blob[1]
         if (img_index + 1) % rare_size == 0:
-            print('batch', batch)
+            print('batch %d (%d od %d images (%.2f%%) processed)' %
+                  (batch, img_index, len(files), 100 * img_index / len(files)))
             img_feats[len(files) -
                       rare_size:][:] = embedding.forward_db(batch_data)
             batch += 1
