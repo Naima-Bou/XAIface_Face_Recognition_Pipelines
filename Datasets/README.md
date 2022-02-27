@@ -6,7 +6,7 @@ The datasets are grouped into training/validation/test following the organizatio
  ### Notes:
 - The ArcFace face recognition models provided in <a href="https://github.com/Naima-Bou/XAIface_Face_Recognition_Pipelines/tree/main/Face_Recognition/ArcFace_Face_Recognition/Face_Recognition_Models">ArcFace models</a> are trained only with the MS1MV2 dataset.
      
-- The preprocessed (face detection, face alignment, facial image cropping) datasets are obtained from the ArcFace Github project.
+- The preprocessed (face detection, face alignment, face image cropping) datasets are obtained from the ArcFace Github project.
 
 - The "Terms of use" information refers to the original (not preprocessed) datasets: 
 
