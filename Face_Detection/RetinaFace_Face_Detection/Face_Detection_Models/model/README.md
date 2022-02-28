@@ -1,1 +1,0 @@
-This directory holds the models for the RetinaFace detector.
