@@ -60,3 +60,10 @@ Expected result for **ijbc-IJBC** (provided by JRS, 03.02.2022)
 
 ![ArcFace result obtained by JRS](20220203_ijbc.ArcFace.JRS.png)
 
+Expected result for **ijbc-IJBB** (provided by JRS, 28.02.2022)
+
+|  FPR [1]    | 1e-06 | 1e-05 | 0.0001 | 0.001 |  0.01 |  0.1  |
+| :---        | :----:| :----:| :----: | :----:| :----:| :----:|
+| **TPR [%]** | 38.21 | 91.34 | 95.00  | 96.60 | 97.88 | 98.68 |
+
+![ArcFace result obtained by JRS](20220228_ijbb.ArcFace.JRS.png)
