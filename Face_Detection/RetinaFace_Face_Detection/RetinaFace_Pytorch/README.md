@@ -2,9 +2,9 @@
  
  ## 1. Introduction
  
- - The RetinaFace face detection code sources and pretrained models are obtained from the RetinaFace Pytorch implementation available from  [RetinaFace-Pytorch](https://github.com/ternaus/retinaface) Github project. 
+ - The RetinaFace face detection code sources and pretrained models are obtained from the RetinaFace Pytorch implementation available from the [RetinaFace-Pytorch](https://github.com/ternaus/retinaface) Github project. 
+ - The [RetinaFace-Pytorch](https://github.com/ternaus/retinaface) GitHub project is built on top of its predecessor RetinaFace PyTorch implementation available from the  [RetinaFace](https://github.com/biubug6/Pytorch_Retinaface). Both RetinaFace PyTorch implementations show similar performance compared to the original implementation.
  
- - The [RetinaFace-Pytorch](https://github.com/ternaus/retinaface) GitHub project is build on the top of its predecessor RetinaFace pytorch implementation available from  [RetinaFace](https://github.com/biubug6/Pytorch_Retinaface). The both RetinaFace pytorch implementations show similar performance compared to the original implementation.
  
  ## 2. Installation
 
