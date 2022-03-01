@@ -8,9 +8,16 @@
  
  ## 2. Installation
 
-For RetinaFace-Pytorch library installation, please run:
+For an RetinaFace-Pytorch library installation in your environment, please run:
 
 `pip install -U retinaface_pytorch`
+
+Please note, that it is also possible to use the GIT-code directly and let the local 
+Python-path point to the proper location (e.g. 
+
+```
+sys.path.append('<path to GIT>/XAIface_Face_Recognition_Pipelines/Face_Detection/RetinaFace_Face_Detection/RetinaFace_Pytorch')
+```
 
 ## 3. Training
 ### 3.1 Install dependencies
@@ -41,7 +48,17 @@ optional arguments:
   -c CONFIG_PATH, --config_path CONFIG_PATH
                         Path to the config.
 ```
-## 4. Example of inference
+## 4 Inference
+
+### 4.1 Install dependencies
+The following dependencies have to installed if the training requirements 
+are not installed (*maybe an incomplete list so far...*)
+```
+pip install albumentations
+pip install iglovikov-helper-functions
+```
+
+### 4.2 Example code for inference
 
 ```python
 import cv2
