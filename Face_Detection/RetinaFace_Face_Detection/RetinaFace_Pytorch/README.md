@@ -1,4 +1,4 @@
- <h1 align="center"> Pytorch Implementation of RetinaFace </h1>
+ <h1 align="center"> RetinaFace Pytorch Implementation </h1>
  
  ## 1. Introduction
  
@@ -8,7 +8,7 @@
  
  ## 2. Installation
 
-For RetinaFace-Pytorch installation, please run:
+For RetinaFace-Pytorch library installation, please run:
 
 `pip install -U retinaface_pytorch`
 
