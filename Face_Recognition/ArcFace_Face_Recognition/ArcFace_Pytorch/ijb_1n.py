@@ -5,25 +5,13 @@
 # https://github.com/deepinsight/insightface/tree/master/recognition/_evaluation_/ijb (version 23.03.2022)
 # for usage within the XAIface project.
 
-import os
 import numpy as np
-import timeit
-import sklearn
-import cv2
 import sys
-import argparse
-import glob
-import numpy.matlib
 import heapq
 import math
-from datetime import datetime as dt
 import pandas as pd  # Note: pandas is imported for speeded up reading annotation-files
 
-from sklearn import preprocessing
 sys.path.append('./recognition')
-from eval_ijbc import Embedding  # Note: Embedding-class is imported from eval_ijbc, as the code is equivalent (checked)
-from menpo.visualize import print_progress
-from menpo.visualize.viewmatplotlib import sample_colours_from_colourmap
 
 
 def read_template_subject_id_list(path):
@@ -63,6 +51,7 @@ def image2template_feature(img_feats=None,  # used
     unique_subjectids = choose_ids[indices]
     template_feats = np.zeros((len(unique_templates), img_feats.shape[1]))
 
+    count_template = 0
     for count_template, uqt in enumerate(unique_templates):
         (ind_t, ) = np.where(templates == uqt)
         face_norm_feats = img_feats[ind_t]
@@ -118,11 +107,11 @@ def verification(template_norm_feats=None,
             print('Finish {}/{} pairs.'.format(c, total_sublists))
     return score
 
-
-def read_score(path):
-    with open(path, 'rb') as fid:
-        img_feats = cPickle.load(fid)
-    return img_feats
+# Note: this function is commented, as cPickle is not referenced, and it seems, that code is not used.
+# def read_score(path):
+#     with open(path, 'rb') as fid:
+#         img_feats = cPickle.load(fid)
+#     return img_feats
 
 
 def evaluation(query_feats, gallery_feats, mask):
