@@ -3,7 +3,7 @@
 import os
 import pickle
 
-import matplotlib
+# import matplotlib
 import pandas as pd
 
 # matplotlib.use('Agg')
@@ -25,20 +25,15 @@ from pathlib import Path
 import sys
 import warnings
 
-globalArgs = []  # definition of a global argument container if functionality is used from another module from outside
+global args  # definition of a global argument container
 
 
 class Embedding(object):
     def __init__(self, prefix, data_shape, batch_size=1):
-        if not 'args' in globals():
-            global globalArgs
-            args_ = globalArgs
-        else:
-            args_ = args
         image_size = (112, 112)
         self.image_size = image_size
         weight = torch.load(prefix)
-        resnet = get_model(args_.network, dropout=0, fp16=False).cuda()
+        resnet = get_model(args.network, dropout=0, fp16=False).cuda()
         resnet.load_state_dict(weight)
         model = torch.nn.DataParallel(resnet)
         self.model = model
@@ -93,7 +88,8 @@ class Embedding(object):
 
 # 将一个list尽量均分成n份，限制len(list)==n，份数大于原list内元素个数则分配空list[]
 def divideIntoNstrand(listTemp, n):
-    twoList = [[] for i in range(n)]
+    # twoList = [[] for i in range(n)]
+    twoList = [[] for _ in range(n)]
     for i, e in enumerate(listTemp):
         twoList[i % n].append(e)
     return twoList
@@ -133,13 +129,8 @@ def read_image_feature(path):
 # In[ ]:
 
 
-def get_image_feature(img_path, files_list, model_path, epoch, gpu_id):
-    if not 'args' in globals():
-        global globalArgs
-        args_ = globalArgs
-    else:
-        args_ = args
-    batch_size = args_.batch_size
+def get_image_feature(img_path, files_list, model_path):
+    batch_size = args.batch_size
     data_shape = (3, 112, 112)
 
     files = files_list
@@ -164,9 +155,8 @@ def get_image_feature(img_path, files_list, model_path, epoch, gpu_id):
         batch_data[2 * (img_index - batch * batch_size) + 1][:] = input_blob[1]
         if (img_index + 1) % batch_size == 0:
             print('batch %d (%d od %d images (%.2f%%) processed)' %
-                  (batch, img_index, len(files), 100*img_index/len(files)))
-            img_feats[batch * batch_size:batch * batch_size +
-                                         batch_size][:] = embedding.forward_db(batch_data)
+                  (batch, img_index, len(files), 100 * img_index / len(files)))
+            img_feats[batch * batch_size:batch * batch_size + batch_size][:] = embedding.forward_db(batch_data)
             batch += 1
         faceness_scores.append(name_lmk_score[-1])
 
@@ -298,13 +288,13 @@ def read_score(path):
     return img_feats
 
 
-# %% main entry point /test-script
-"""
-This is the main function entry point for direct execution of the script (e.g. for development).
-The code is called only, if the entire script is executed from python directly.
-"""
-if __name__ == '__main__':
+def set_global_args(Args):
+    global args
+    args = Args
 
+
+## %% main function for the test-script
+def main():
     sys.path.insert(0, "../")
     warnings.filterwarnings("ignore")
 
@@ -317,18 +307,18 @@ if __name__ == '__main__':
     parser.add_argument('--network', default='iresnet50', type=str, help='')
     parser.add_argument('--job', default='insightface', type=str, help='job name')
     parser.add_argument('--target', default='IJBC', type=str, help='target, set to IJBC or IJBB')
+
+    global args
     args = parser.parse_args()
 
     target = args.target
     model_path = args.model_prefix
     image_path = args.image_path
     result_dir = args.result_dir
-    gpu_id = None
+
     use_norm_score = True  # if Ture, TestMode(N1)
     use_detector_score = True  # if Ture, TestMode(D1)
     use_flip_test = True  # if Ture, TestMode(F1)
-    job = args.job
-    batch_size = args.batch_size
 
     assert target == 'IJBC' or target == 'IJBB'
 
@@ -380,7 +370,7 @@ if __name__ == '__main__':
     # img_feats
     # for i in range(rank_size):
     img_feats, faceness_scores = get_image_feature(img_path, files_list,
-                                                   model_path, 0, gpu_id)
+                                                   model_path)
     stop = timeit.default_timer()
     print('Time: %.2f s. ' % (stop - start))
     print('Feature Shape: ({} , {}) .'.format(img_feats.shape[0],
@@ -405,8 +395,7 @@ if __name__ == '__main__':
         # concat --- F1
         # img_input_feats = img_feats
         # add --- F2
-        img_input_feats = img_feats[:, 0:img_feats.shape[1] //
-                                         2] + img_feats[:, img_feats.shape[1] // 2:]
+        img_input_feats = img_feats[:, 0:img_feats.shape[1] // 2] + img_feats[:, img_feats.shape[1] // 2:]
     else:
         img_input_feats = img_feats[:, 0:img_feats.shape[1] // 2]
 
@@ -479,8 +468,7 @@ if __name__ == '__main__':
                  lw=1,
                  label=('[%s (AUC = %0.4f %%)]' %
                         (method.split('-')[-1], roc_auc * 100)))
-        tpr_fpr_row = []
-        tpr_fpr_row.append("%s-%s" % (method, target))
+        tpr_fpr_row = ["%s-%s" % (method, target)]
         for fpr_iter in np.arange(len(x_labels)):
             _, min_index = min(
                 list(zip(abs(fpr - x_labels[fpr_iter]), range(len(fpr)))))
@@ -498,3 +486,16 @@ if __name__ == '__main__':
     plt.legend(loc="lower right")
     fig.savefig(os.path.join(save_path, '%s.pdf' % target.lower()))
     print(tpr_fpr_table)
+
+
+## main entry point to this Python file
+if __name__ == '__main__':
+    """
+    This is the main function entry point for direct execution of the script (e.g. for development).
+    The code is called only, if the entire script is executed from python directly.
+    """
+    main()
+
+
+def mainEntryPoint():  # dummy function for proper navigation
+    pass
