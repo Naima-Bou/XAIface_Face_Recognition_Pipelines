@@ -308,6 +308,8 @@ def main():
     parser.add_argument('--job', default='insightface', type=str, help='job name')
     parser.add_argument('--target', default='IJBC', type=str, help='target, set to IJBC or IJBB')
 
+
+
     global args
     args = parser.parse_args()
 

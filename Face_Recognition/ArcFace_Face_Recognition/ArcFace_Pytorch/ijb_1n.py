@@ -185,5 +185,14 @@ def gen_mask(query_ids, reg_ids):  # used
     return mask
 
 
-if __name__ == "__main__":
+## main entry point to this Python file
+if __name__ == '__main__':
+    """
+    This is the main function entry point for direct execution of the script (e.g. for development).
+    The code is called only, if the entire script is executed from python directly.
+    """
+    pass
+
+
+def mainEntryPoint():  # dummy function for proper navigation
     pass
