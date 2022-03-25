@@ -2,11 +2,7 @@
 
 import os
 import pickle
-
-# import matplotlib
 import pandas as pd
-
-# matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import timeit
 import sklearn
@@ -25,7 +21,7 @@ from pathlib import Path
 import sys
 import warnings
 
-global args  # definition of a global argument container
+global args  # definition of a global argument container (to be filled via external function set_global_args(Args)
 
 
 class Embedding(object):
@@ -103,9 +99,6 @@ def read_template_media_list(path):
     return templates, medias
 
 
-# In[ ]:
-
-
 def read_template_pair_list(path):
     # pairs = np.loadtxt(path, dtype=str)
     pairs = pd.read_csv(path, sep=' ', header=None).values
@@ -117,16 +110,10 @@ def read_template_pair_list(path):
     return t1, t2, label
 
 
-# In[ ]:
-
-
 def read_image_feature(path):
     with open(path, 'rb') as fid:
         img_feats = pickle.load(fid)
     return img_feats
-
-
-# In[ ]:
 
 
 def get_image_feature(img_path, files_list, model_path):
@@ -185,9 +172,6 @@ def get_image_feature(img_path, files_list, model_path):
     return img_feats, faceness_scores
 
 
-# In[ ]:
-
-
 def image2template_feature(img_feats=None, templates=None, medias=None):
     # ==========================================================
     # 1. face image feature l2 normalization. img_feats:[number_image x feats_dim]
@@ -225,9 +209,6 @@ def image2template_feature(img_feats=None, templates=None, medias=None):
     return template_norm_feats, unique_templates
 
 
-# In[ ]:
-
-
 def verification(template_norm_feats=None,
                  unique_templates=None,
                  p1=None,
@@ -257,7 +238,6 @@ def verification(template_norm_feats=None,
     return score
 
 
-# In[ ]:
 def verification2(template_norm_feats=None,
                   unique_templates=None,
                   p1=None,
@@ -293,7 +273,7 @@ def set_global_args(Args):
     args = Args
 
 
-## %% main function for the test-script
+## %% main function for the test-script (moved to main() to avoid execution during import
 def main():
     sys.path.insert(0, "../")
     warnings.filterwarnings("ignore")
@@ -304,14 +284,12 @@ def main():
     parser.add_argument('--image-path', default='', type=str, help='')
     parser.add_argument('--result-dir', default='.', type=str, help='')
     parser.add_argument('--batch-size', default=128, type=int, help='')
-    parser.add_argument('--network', default='iresnet50', type=str, help='')
     parser.add_argument('--job', default='insightface', type=str, help='job name')
     parser.add_argument('--target', default='IJBC', type=str, help='target, set to IJBC or IJBB')
-
-
+    parser.add_argument('--network', default='iresnet50', type=str, help='')
 
     global args
-    args = parser.parse_args()
+    args = parser.parse_args()  # set the parsed arguments to global argument store of this module
 
     target = args.target
     model_path = args.model_prefix
@@ -337,8 +315,6 @@ def main():
     stop = timeit.default_timer()
     print('Time: %.2f s. ' % (stop - start))
 
-    # In[ ]:
-
     # =============================================================
     # load template pairs for template-to-template verification
     # tid : template id,  label : 1/0
@@ -353,9 +329,6 @@ def main():
     print('Time: %.2f s. ' % (stop - start))
 
     # # Step 2: Get Image Features
-
-    # In[ ]:
-
     # =============================================================
     # load image features
     # format:
@@ -379,9 +352,6 @@ def main():
                                               img_feats.shape[1]))
 
     # # Step3: Get Template Features
-
-    # In[ ]:
-
     # =============================================================
     # compute template features from image features.
     # =============================================================
@@ -420,9 +390,6 @@ def main():
     print('Time: %.2f s. ' % (stop - start))
 
     # # Step 4: Get Template Similarity Scores
-
-    # In[ ]:
-
     # =============================================================
     # compute verification scores between template pairs.
     # =============================================================
@@ -431,7 +398,6 @@ def main():
     stop = timeit.default_timer()
     print('Time: %.2f s. ' % (stop - start))
 
-    # In[ ]:
     save_path = os.path.join(result_dir, args.job)
     # save_path = result_dir + '/%s_result' % target
 
@@ -442,9 +408,6 @@ def main():
     np.save(score_save_file, score)
 
     # # Step 5: Get ROC Curves and TPR@FPR Table
-
-    # In[ ]:
-
     files = [score_save_file]
     methods = []
     scores = []
