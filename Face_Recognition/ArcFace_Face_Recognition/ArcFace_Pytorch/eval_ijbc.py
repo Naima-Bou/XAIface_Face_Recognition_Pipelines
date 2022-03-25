@@ -278,15 +278,15 @@ def main():
     sys.path.insert(0, "../")
     warnings.filterwarnings("ignore")
 
-    parser = argparse.ArgumentParser(description='do ijb test')
+    parser = argparse.ArgumentParser(description='eval_ijbc')
     # general
     parser.add_argument('--model-prefix', default='', help='path to load model.')
     parser.add_argument('--image-path', default='', type=str, help='')
     parser.add_argument('--result-dir', default='.', type=str, help='')
     parser.add_argument('--batch-size', default=128, type=int, help='')
-    parser.add_argument('--job', default='insightface', type=str, help='job name')
-    parser.add_argument('--target', default='IJBC', type=str, help='target, set to IJBC or IJBB')
-    parser.add_argument('--network', default='iresnet50', type=str, help='')
+    parser.add_argument('--job', default='', type=str, help='job name')
+    parser.add_argument('--target', default='', type=str, help='target, set to IJBC or IJBB')
+    parser.add_argument('--network', default='', type=str, help='')
 
     global args
     args = parser.parse_args()  # set the parsed arguments to global argument store of this module
