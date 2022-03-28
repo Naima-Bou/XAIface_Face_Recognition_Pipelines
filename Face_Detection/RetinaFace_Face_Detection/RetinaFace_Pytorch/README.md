@@ -13,7 +13,7 @@ For an RetinaFace-Pytorch library installation in your environment, please run:
 `pip install -U retinaface_pytorch`
 
 Please note, that it is also possible to use the GIT-code directly and let the local 
-Python-path point to the proper location (e.g. 
+Python-path point to the proper location e.g. 
 
 ```
 sys.path.append('<path to GIT>/XAIface_Face_Recognition_Pipelines/Face_Detection/RetinaFace_Face_Detection/RetinaFace_Pytorch')
@@ -51,7 +51,7 @@ optional arguments:
 ## 4 Inference
 
 ### 4.1 Install dependencies
-The following dependencies have to installed if the training requirements 
+The following dependencies have to be installed if the training requirements 
 are not installed (*maybe an incomplete list so far...*)
 ```
 pip install albumentations
